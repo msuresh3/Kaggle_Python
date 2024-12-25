@@ -23,4 +23,19 @@ is_workday = False
 
 # Check what the function returns given the current values of the variables above
 actual = prepared_for_weather(have_umbrella, rain_level, have_hood, is_workday)
-print(actual)
+#print(actual)
+
+def is_negative(number):
+    if number < 0:
+        return True
+    else:
+        return False
+
+def concise_is_negative(number):
+    return(number < 0)
+    # Your code goes here (try to keep it to one line!)
+
+# Check your answer
+print (concise_is_negative(-1))
+print (concise_is_negative(0))
+print (concise_is_negative(1))
