@@ -63,6 +63,46 @@ def word_search(doc_list, keyword):
             indices.append(i)
     return indices
 
-doc_list = ["The Learn Python Challenge casino.", "They bought a car", "Casino"]
-print(word_search(doc_list, 'casino'))
- 
+#doc_list = ["The Learn Python Challenge casino.", "They bought a car", "Casino"]
+#print(word_search(doc_list, 'casino'))
+
+def multi_word_search(doc_list, keywords):
+    """
+    Takes list of documents (each document is a string) and a list of keywords.  
+    Returns a dictionary where each key is a keyword, and the value is a list of indices
+    (from doc_list) of the documents containing that keyword
+
+    >>> doc_list = ["The Learn Python Challenge Casino.", "They bought a car and a casino", "Casinoville"]
+    >>> keywords = ['casino', 'they']
+    >>> multi_word_search(doc_list, keywords)
+    {'casino': [0, 1], 'they': [1]}
+    """
+    # list to hold the indices of matching documents
+    #dict = {}
+    #keywords = [x.lower() for x in keywords]
+    #for kw in keywords:
+    #    dict[kw] = []
+    # Iterate through the indices (i) and elements (doc) of documents
+    #for i, doc in enumerate(doc_list):
+    #    print(i,doc)
+        # Split the string doc into a list of words (according to whitespace)
+    #    tokens = doc.split()
+        #print(tokens)
+        # Make a transformed list where we 'normalize' each word to facilitate matching.
+        # Periods and commas are removed from the end of each word, and it's set to all lowercase.
+    #    normalized = [token.rstrip('.,').lower() for token in tokens]
+        #print(normalized)
+        # Is there a match? If so, update the list of matching indices.
+    #    for kw in keywords:
+    #        if kw in normalized:
+    #            dict[kw].append(i)
+    #return dict
+def multi_word_search(documents, keywords):
+    keyword_to_indices = {}
+    for keyword in keywords:
+        keyword_to_indices[keyword] = word_search(documents, keyword)
+    return keyword_to_indices
+
+doc_list = ["They Learn Python Challenge casino.", "They bought a car and casino", "Casino"]
+keywords = ['Casino', 'They','Challenge']
+print(multi_word_search(doc_list, keywords))
